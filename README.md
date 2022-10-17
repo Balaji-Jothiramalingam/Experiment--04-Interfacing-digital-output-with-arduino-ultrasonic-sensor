@@ -38,6 +38,8 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
+![ex4robo](https://user-images.githubusercontent.com/114234865/196203339-0ede7463-9de1-4ff3-be8a-364fe0424c8f.png)
+![ex4robo3](https://user-images.githubusercontent.com/114234865/196203461-e9944b37-89ff-4f3d-8756-aaeb0bc7f34d.png)
 
 
 
@@ -55,7 +57,35 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+const int trigpin = 2;
+const int echopin = 4;
+long duration;
+int dist;
 
+void setup(){
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(20);
+  digitalWrite(trigpin,HIGH);
+  delay(20);
+  digitalWrite(trigpin,LOW);
+  duration  = pulseIn(echopin,HIGH);
+  dist = duration * 0.034/2;
+  Serial.print("\nDistance = ");
+  Serial.print(dist);
+  Serial.println("CM");
+  delay(500);
+}
+
+
+```
 
 
 
@@ -64,30 +94,19 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 ### Distance vs measurement table 
 
 			
- 
-			
-			
-			
+ ![ex4robo2](https://user-images.githubusercontent.com/114234865/196202488-1efc102d-4812-49a5-a7c4-0bafa22d79d8.png)			
+```
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
-
-
-
-
-
-
-
+		N   = 5
+		AVG = 10.6
+	Average error = sum/ number of readings 
+		AVG = 10.6/5
+		    = 2.12
+```
 
 ### RESULTS
 
+Thus the average error is calculated successfully.
 
 
  
